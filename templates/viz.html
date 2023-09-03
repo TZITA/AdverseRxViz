@@ -8,16 +8,34 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <div id="header"><p class="hh">AdverseRxViz</p></div>
-    
-    <div>Choose the Graph Type</div>
-    <div class="form">
-        <label><input type="checkbox" id="barCheckbox"> Bar</label>
-        <label><input type="checkbox" id="histogramCheckbox"> Histogram</label>
-        <label><input type="checkbox" id="pieCheckbox"> Pie</label>
-    </div>
-    <button id="searchButton">Generate Chart</button>
-
+    <header>
+        <h1>AdverseRxViz</h1>
+        
+        <nav>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section id="about">
+            <h2>About</h2>
+            <p>A web-based application that analyses and visualizes data related to adverse events of drugs retrieved from open-source health-related databases.</p>
+        </section>
+        <section>
+            <h2>Choose the Graph Type</h2>
+            <label><input type="checkbox" id="barCheckbox"> Bar</label>
+            <label><input type="checkbox" id="histogramCheckbox"> Histogram</label>
+            <label><input type="checkbox" id="pieCheckbox"> Pie</label>
+            <button id="searchButton">Generate Chart</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Thomas Beyene</p>
+    </footer>
     <script>
         document.getElementById('searchButton').addEventListener('click', function() {
             // Get the selected checkbox values

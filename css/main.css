@@ -1,27 +1,82 @@
-div#header {
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../assets/nutritional-supplement-2358476.jpg');
+    background-color: #4c4a67;
+    background-size: cover;
+    background-repeat: repeat-x;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4c4a67;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    color: #fff;
+    font-size: 32px;
+  }
+  
+  header nav {
+    display: flex;
+}
+  
+  header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+  
+  header nav li {
+    margin: 0 10px;
+}
+  
+  header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+  
+  header nav a:hover {
+    color: #8bc34a;
+}
+
+main {
+    margin: 80px auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+section p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+footer {
     text-align: center;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
-}
-
-.hh {
-    font-size: 72px;
-    color: rgb(8, 153, 214);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-weight: bold;
-}
-
-div.form {
-    display: flexbox; /* Initially hide the form */
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-}
-
-body {
-    background-image: url("../AdobeStock_233662833_Preview.jpeg");
-    background-size:auto;
-    background-repeat: no-repeat;
+  }
+  
+footer p {
+  font-size: 14px;
+  color: #8bc34a;
 }

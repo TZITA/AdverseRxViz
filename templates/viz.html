@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdverseRxViz</title>
+    <link rel="stylesheet" type="text/css" href="..\css\main.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="header"><p class="hh">AdverseRxViz</p></div>
+    
+    <div>Choose the Graph Type</div>
+    <div class="form">
+        <label><input type="checkbox" id="barCheckbox"> Bar</label>
+        <label><input type="checkbox" id="histogramCheckbox"> Histogram</label>
+        <label><input type="checkbox" id="pieCheckbox"> Pie</label>
+    </div>
+    <button id="searchButton">Generate Chart</button>
+
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function() {
+            // Get the selected checkbox values
+            var barChecked = document.getElementById('barCheckbox').checked;
+            var histogramChecked = document.getElementById('histogramCheckbox').checked;
+            var pieChecked = document.getElementById('pieCheckbox').checked;
+
+            // Create a payload object to send to the server
+            var payload = {
+                bar: barChecked,
+                histogram: histogramChecked,
+                pie: pieChecked
+            };
+
+            // Make an HTTP request to the Flask endpoint using Fetch API
+            fetch('/generate_chart', {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.text())
+            .then(chartHtml => {
+                // Open the chart in a new tab
+                var newTab = window.open();
+                newTab.document.write(chartHtml);
+            });
+        });
+    </script>
+</body>
+</html>

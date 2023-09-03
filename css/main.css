@@ -1,0 +1,27 @@
+div#header {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.hh {
+    font-size: 72px;
+    color: rgb(8, 153, 214);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+div.form {
+    display: flexbox; /* Initially hide the form */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+}
+
+body {
+    background-image: url("../AdobeStock_233662833_Preview.jpeg");
+    background-size:auto;
+    background-repeat: no-repeat;
+}

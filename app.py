@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from fetch import create_adverse_events_chart
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -18,4 +19,4 @@ def generate_chart():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    serve(app)

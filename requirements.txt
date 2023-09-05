@@ -2,3 +2,5 @@ flask
 plotly
 requests
 waitress
+Flask-Mail 
+secure-smtplib

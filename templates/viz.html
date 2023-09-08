@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdverseRxViz</title>
-    <link rel="icon" href="{{ url_for('static', filename='assets/nutritional-supplement-2358476.jpg') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="icon" href="../static/assets/logo.jpg">
+    <link rel="stylesheet" href="../static/css/main.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>
@@ -15,7 +16,7 @@
         <nav>
           <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="mailto:thomas.beyene.987@gmail.com">Email</a></li>
           </ul>
         </nav>
       </header>
@@ -24,6 +25,11 @@
             <h2>About</h2>
             <p>A web-based application that analyses and visualizes data related to adverse events of drugs retrieved from open-source health-related databases.</p>
         </section>
+        <section id="moreInfo">
+            <h2>More Info:</h2>
+            <a href="https://en.wikipedia.org/wiki/Adverse_drug_reaction" target="_blank">What are adverse drug reactions?</a>
+            <a href="https://csulb.libguides.com/c.php?g=39192&p=249955" target="_blank">Where to find free databases?</a>
+        </section>
         <section>
             <h2>Choose the Graph Type</h2>
             <label><input type="checkbox" id="barCheckbox"> Bar</label>
@@ -31,22 +37,17 @@
             <label><input type="checkbox" id="pieCheckbox"> Pie</label>
             <button id="searchButton">Generate Chart</button>
         </section>
-        <section>
-            <h2>Contact Me</h2>
-            <form action="/submit" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required><br><br>
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-                <input type="submit" value="Submit">
-            </form>
-        </section>
+        <a href="#">Jump to Top</a>
     </main>
     <footer>
+        <ul class="icons">
+            <li><i class="fa fa-facebook"></i></li>
+            <li><i class="fa fa-telegram"></i></li>
+            <li><i class="fa fa-twitter"></i></li>
+            <li><i class="fa fa-instagram"></i></li>
+            <li><i class="fa fa-linkedin"></i></li>
+            <li><i class="fa fa-github"></i></li>
+        </ul>
         <p>&copy; 2023 Thomas Beyene</p>
     </footer>
     <script>

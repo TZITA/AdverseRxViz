@@ -25,6 +25,10 @@ def create_adverse_events_chart(chart_types):
     if chart_types.get('pie'):
         # Add Pie chart trace
         chart_traces.append(go.Pie(labels=drug_names, values=event_counts, name='Pie'))
+    
+    if chart_types.get('line'):
+        # Add line chart trace
+        chart_traces.append(go.Line(labels=drug_names, values=event_counts, name='Pie'))
 
     # Create a Plotly figure using the selected traces
     fig = go.Figure(chart_traces)

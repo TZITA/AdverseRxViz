@@ -23,7 +23,7 @@ header {
     margin: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-style: italic;
-    color: #fff;
+    color: #FFAC1C;
     font-size: 32px;
   }
   
@@ -59,6 +59,12 @@ main {
     padding: 20px;
 }
 
+#viz {
+  border-radius: 10%;
+  background-image: linear-gradient(rgb(224, 220, 220), #f4c471);
+  padding: 20px;
+}
+
 #about {
   border-radius: 10%;
   background-image: url('../assets/nutritional-supplement-2358476.jpg');
@@ -74,6 +80,7 @@ main {
 }
 
 section h2 {
+  color: #FFAC1C;
   font-family: cursive;
   font-size: xx-large;
   font-style: italic;
@@ -87,6 +94,18 @@ section p {
     line-height: 1.5;
   }
 
+button {
+  background-color: #FFAC1C;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10%;
+}
+
 footer {
     text-align: center;
     padding: 20px;
@@ -94,7 +113,7 @@ footer {
   
 footer p {
   font-size: 14px;
-  color: #8bc34a;
+  color: #FFAC1C;
 }
 
 .icons {

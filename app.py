@@ -20,4 +20,5 @@ def generate_chart():
 
 
 if __name__ == '__main__':
-    serve(app)
+    #serve(app)
+    app.run(debug=True)

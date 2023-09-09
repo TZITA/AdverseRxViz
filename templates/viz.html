@@ -30,22 +30,57 @@
             <a href="https://en.wikipedia.org/wiki/Adverse_drug_reaction" target="_blank">What are adverse drug reactions?</a>
             <a href="https://csulb.libguides.com/c.php?g=39192&p=249955" target="_blank">Where to find free databases?</a>
         </section>
-        <section>
-            <h2>Choose the Graph Type</h2>
-            <label><input type="checkbox" id="barCheckbox"> Bar</label>
-            <label><input type="checkbox" id="histogramCheckbox"> Histogram</label>
-            <label><input type="checkbox" id="pieCheckbox"> Pie</label>
-            <button id="searchButton">Generate Chart</button>
+        <section id="viz">
+            <h2>Choose the VIZ</h2>
+            <section>
+                <h3>Drug</h3>
+                <label for="drug">Drug Name:</label>
+                <input type="text" id="drug" name="drug" placeholder="Drug Name">
+            </section>
+            <section>
+                <h3>Adverse Event</h3>
+                <label for="adverseEvent">Adverse Event:</label>
+                <input type="text" id="adverseEvent" name="adverseEvent" placeholder="Adverse Event">
+            </section>
+            <section>
+                <h3>Time Period</h3>
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate" name="startDate">
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate" name="endDate">
+            </section>
+            <section>
+                <h3>Patient details</h3>
+                <label for="age">Age range: </label><input type="number" min="1" placeholder="From"><input type="number" min="1" placeholder="To">
+                <label for="Sex">Sex: </label><input type="text" list="sex">
+                <datalist id="sex">
+                    <option value="Male">
+                    <option value="Female">
+                </datalist>
+            </section>
+            <section>
+                <h3>Chart type</h3>
+                <label for="chart">Chart: </label> <input id="selectedChart" type="text" list="chart-type">
+                <datalist id="chart-type">
+                    <option value="Bar Chart">
+                    <option value="Histogram">
+                    <option value="Pie Chart">
+                    <option value="Line Chart">
+                </datalist>
+            </section>
+            <section>
+                <button id="searchButton">Generate Chart</button>
+            </section>
         </section>
-        <a href="#">Jump to Top</a>
     </main>
+    <a href="#">Jump to Top</a>
     <footer>
         <ul class="icons">
             <li><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
             <li><a href="https://www.telegram.com" target="_blank"><i class="fa fa-telegram"></i></a></li>
             <li><a href="https://www.twitter.com/ThomasBeyene987" target="_blank"><i class="fa fa-twitter"></i></a></li>
             <li><a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/thomas-beyene-habtemariam-967245173" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://jwww.linkedin.com/in/thomas-beyene-habtemariam-967245173" target="_blank"><i class="fa fa-linkedin"></i></a></li>
             <li><a href="https://github.com/TZITA" target="_blank"><i class="fa fa-github"></i></a></li>
         </ul>
         <p>&copy; 2023 Thomas Beyene</p>
@@ -53,15 +88,16 @@
     <script>
         document.getElementById('searchButton').addEventListener('click', function() {
             // Get the selected checkbox values
-            var barChecked = document.getElementById('barCheckbox').checked;
-            var histogramChecked = document.getElementById('histogramCheckbox').checked;
-            var pieChecked = document.getElementById('pieCheckbox').checked;
+            var selectedChart = document.getElementById('selectedChart').value;
+
+            console.log(selectedChart);
 
             // Create a payload object to send to the server
             var payload = {
-                bar: barChecked,
-                histogram: histogramChecked,
-                pie: pieChecked
+                bar: selectedChart.includes('Bar Chart'),
+                histogram: selectedChart.includes('Histogram'),
+                pie: selectedChart.includes('Pie Chart'),
+                line: selectedChart.includes('Line Chart')
             };
 
             // Make an HTTP request to the Flask endpoint using Fetch API

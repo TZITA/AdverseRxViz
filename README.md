@@ -1,7 +1,7 @@
 # AdverseRxViz
 
-![Web Application Screenshot](./screenshot.png)
-
+![logo](static/assets/logo.jpg)
+  
 ## Overview
 
 **AdverseRxViz** (Adverse Reaction Visualizer) is a web-based tool designed for healthcare professionals, researchers, and pharmaceutical experts. It interacts with open-source health-related databases, specifically focusing on adverse events related to drugs. The primary goal of this project is to provide users with a user-friendly tool for visualizing and analyzing data related to adverse events associated with various drugs.

@@ -6,8 +6,9 @@
     <title>AdverseRxViz</title>
     <link rel="icon" href="../static/assets/logo.jpg">
     <link rel="stylesheet" href="../static/css/main.css">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
@@ -17,6 +18,12 @@
           <ul>
             <li><a href="#about">About</a></li>
             <li><a href="mailto:thomas.beyene.987@gmail.com">Email</a></li>
+            <li>
+                <div class="mode">
+                    Dark mode: 
+                    <span class="change">OFF</span>
+                </div>
+            </li>
           </ul>
         </nav>
       </header>
@@ -86,6 +93,20 @@
         <p>&copy; 2023 Thomas Beyene</p>
     </footer>
     <script>
+        // Dark mode
+        $(document).ready(function() {
+            $( ".change" ).on("click", function() {
+                if( $( "body" ).hasClass( "dark" )) {
+                    $( "body" ).removeClass( "dark" );
+                    $( ".change" ).text( "OFF" );
+                } else {
+                    $( "body" ).addClass( "dark" );
+                    $( ".change" ).text( "ON" );
+                }
+            });
+        });
+
+        // Search button
         document.getElementById('searchButton').addEventListener('click', function() {
             // Get the selected checkbox values
             var selectedChart = document.getElementById('selectedChart').value;

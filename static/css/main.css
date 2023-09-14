@@ -122,6 +122,18 @@ button {
   border-radius: 10%;
 }
 
+.genChart {
+  display: flex;
+  align-items: center;
+}
+
+#loading-gif {
+  display: none;
+  margin-left: 20px;
+  width: 100px;
+  height: 100px;
+}
+
 footer {
     text-align: center;
     padding: 20px;

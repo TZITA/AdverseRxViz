@@ -20,7 +20,7 @@
             <li><a href="mailto:thomas.beyene.987@gmail.com">Email</a></li>
             <li>
                 <div class="mode">
-                    Dark mode: 
+                    Dark: 
                     <span class="change">OFF</span>
                 </div>
             </li>
@@ -43,6 +43,11 @@
                 <h3>Drug</h3>
                 <label for="drug">Drug Name:</label>
                 <input type="text" id="drug" name="drug" placeholder="Drug Name">
+            </section>
+            <section>
+                <h3>Dosage Form</h3>
+                <label for="dosageForm">Dosage Form:</label>
+                <input type="text" id="dosageForm" name="dosageForm" placeholder="Dosage Form">
             </section>
             <section>
                 <h3>Adverse Event</h3>
@@ -75,8 +80,9 @@
                     <option value="Line Chart">
                 </datalist>
             </section>
-            <section>
+            <section class="genChart">
                 <button id="searchButton">Generate Chart</button>
+                <img id="loading-gif" src="../static/assets/load-37.gif" alt="Loading...">
             </section>
         </section>
     </main>
@@ -92,50 +98,6 @@
         </ul>
         <p>&copy; 2023 Thomas Beyene</p>
     </footer>
-    <script>
-        // Dark mode
-        $(document).ready(function() {
-            $( ".change" ).on("click", function() {
-                if( $( "body" ).hasClass( "dark" )) {
-                    $( "body" ).removeClass( "dark" );
-                    $( ".change" ).text( "OFF" );
-                } else {
-                    $( "body" ).addClass( "dark" );
-                    $( ".change" ).text( "ON" );
-                }
-            });
-        });
-
-        // Search button
-        document.getElementById('searchButton').addEventListener('click', function() {
-            // Get the selected checkbox values
-            var selectedChart = document.getElementById('selectedChart').value;
-
-            console.log(selectedChart);
-
-            // Create a payload object to send to the server
-            var payload = {
-                bar: selectedChart.includes('Bar Chart'),
-                histogram: selectedChart.includes('Histogram'),
-                pie: selectedChart.includes('Pie Chart'),
-                line: selectedChart.includes('Line Chart')
-            };
-
-            // Make an HTTP request to the Flask endpoint using Fetch API
-            fetch('/generate_chart', {
-                method: 'POST',
-                body: JSON.stringify(payload),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.text())
-            .then(chartHtml => {
-                // Open the chart in a new tab
-                var newTab = window.open();
-                newTab.document.write(chartHtml);
-            });
-        });
-    </script>
+    <script type="text/javascript" src="../static/script/main.js"></script>
 </body>
 </html>

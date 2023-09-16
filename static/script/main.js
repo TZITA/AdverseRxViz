@@ -45,6 +45,7 @@ $(document).ready(function() {
 
 // Search button
 document.getElementById('searchButton').addEventListener('click', function() {
+    console.log(userChoices);
     // Show loading gif
     document.getElementById('loading-gif').style.display = 'flex';
 
@@ -65,4 +66,17 @@ document.getElementById('searchButton').addEventListener('click', function() {
         var newTab = window.open();
         newTab.document.write(chartHtml);
     });
+});
+
+// guidelines more button
+var btn = document.getElementsByClassName("collapse");
+          
+btn[0].addEventListener("click", function () {
+    this.classList.toggle("active");
+    var content = this.parentElement.nextElementSibling;
+    if (content.style.display === "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
+    }
 });

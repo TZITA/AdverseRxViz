@@ -17,9 +17,12 @@ def generate_chart():
     # Generate the chart based on selected types
     try:
         chart_html = create_adverse_events_chart(userChoices)
+        if chart_html == 'no data':
+            return render_template('no_data.html')
         return chart_html
     except Exception:
         abort(404)
+
 
 @app.errorhandler(404)
 def page_not_found(e):

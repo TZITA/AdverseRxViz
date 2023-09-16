@@ -37,17 +37,93 @@
             <a href="https://en.wikipedia.org/wiki/Adverse_drug_reaction" target="_blank">What are adverse drug reactions?</a>
             <a href="https://csulb.libguides.com/c.php?g=39192&p=249955" target="_blank">Where to find free databases?</a>
         </section>
+        <section>
+            <div id="viz">
+                <div class="guide">
+                    <h2>Guidelines to select parameters for generating chart</h2>
+                    <button class="collapse active"><img src="../static/assets/noun-plus-1194304.png" alt="++++++"></button>
+                </div>
+                <div class="guides2charting" style="display: none;">
+                    <ol>
+                        <li>
+                            <h2>Select a Drug:</h2>
+                            <p>
+                                Begin by selecting a specific drug of interest. Start typing the drug name, and our system will suggest options based on available data. Choose the drug you want to analyze. If you don't have a specific drug in mind, you can leave this field empty to explore adverse events by drug indication.
+                            </p>
+                        </li>
+                
+                        <li>
+                            <h2>Select an Adverse Event (Optional):</h2>
+                            <p>
+                                If you want to focus on a particular adverse event associated with the selected drug, you can specify it here. The system will provide suggestions as you type. If you want to view all adverse events related to the drug, leave this field empty.
+                            </p>
+                        </li>
+                
+                        <li>
+                            <h2>Select a Time Frame (Optional):</h2>
+                            <p>
+                                To analyze adverse events within a specific time frame, provide a start date and/or an end date. The system will retrieve data for adverse events reported between these dates. If you don't provide dates, the system will use default values, typically starting from 2004 and ending with the current date.
+                            </p>
+                        </li>
+                
+                        <li>
+                            <h2>Choose a Chart Type:</h2>
+                            <p>
+                                Select the type of chart you want to generate: Bar Chart, Histogram, or Pie Chart. Each chart type provides a different way of visualizing the data, so choose the one that best suits your needs.
+                            </p>
+                        </li>
+                
+                        <li>
+                            <h2>Generate the Chart:</h2>
+                            <p>
+                                Once you've made your selections, click the "Generate Chart" button. The system will process your choices and retrieve the relevant data from the FDA database.
+                            </p>
+                        </li>
+                
+                        <li>
+                            <h2>Interpreting the Chart:</h2>
+                            <p>
+                                After the chart is generated, you can interact with it to gain insights. Hover over data points to view details, zoom in/out, or click on chart elements for more information.
+                            </p>
+                        </li>
+                
+                        <li>
+                            <h2>Explore Further (Optional):</h2>
+                            <p>
+                                If you want to explore additional data or create a new chart, you can return to the parameter selection section and make different choices. You can refine your analysis by selecting different drugs, adverse events, or time frames.
+                            </p>
+                        </li>
+                
+                        <li>
+                            <h2>Export Chart (Optional):</h2>
+                            <p>
+                                If you wish to save or share the chart, look for export options provided by the charting tool. You might be able to download the chart image or share a link.
+                            </p>
+                        </li>
+                
+                        <li>
+                            <h2>Data Availability:</h2>
+                            <p>
+                                Keep in mind that data availability can vary. If you encounter a message saying "no data" after generating a chart, it may mean that there is no information available for the specific parameters you selected.
+                            </p>
+                        </li>
+                
+                        <li>
+                            <h2>Help and Support:</h2>
+                            <p>
+                                If you have any questions or encounter issues while using the tool, refer to the provided help resources or contact our support team for assistance.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
         <section id="viz">
             <h2>Choose the VIZ</h2>
             <section>
                 <h3>Drug</h3>
                 <label for="drug">Drug Name:</label>
                 <input type="text" id="drug" name="drug" placeholder="Drug Name">
-            </section>
-            <section>
-                <h3>Dosage Form</h3>
-                <label for="dosageForm">Dosage Form:</label>
-                <input type="text" id="dosageForm" name="dosageForm" placeholder="Dosage Form">
             </section>
             <section>
                 <h3>Adverse Event</h3>
@@ -62,22 +138,12 @@
                 <input type="date" id="endDate" name="endDate">
             </section>
             <section>
-                <h3>Patient details</h3>
-                <label for="age">Age range: </label><input type="number" min="1" placeholder="From"><input type="number" min="1" placeholder="To">
-                <label for="Sex">Sex: </label><input type="text" list="sex">
-                <datalist id="sex">
-                    <option value="Male">
-                    <option value="Female">
-                </datalist>
-            </section>
-            <section>
                 <h3>Chart type</h3>
                 <label for="chart">Chart: </label> <input id="selectedChart" type="text" list="chart-type">
                 <datalist id="chart-type">
                     <option value="Bar Chart">
-                    <option value="Histogram">
                     <option value="Pie Chart">
-                    <option value="Line Chart">
+                    <option value="Heatmap">
                 </datalist>
             </section>
             <section class="genChart">

@@ -102,6 +102,8 @@ def create_adverse_events_chart(userChoices):
             fig.update_layout(title=f'{userChoices["adverseEvent"].capitalize()} associated with {userChoices["drug"].capitalize()} reported between {formattedStartD} and {formattedEndD}')
         else:
             fig.update_layout(title=f'Adverse Events of {userChoices["drug"].capitalize()} reported between {formattedStartD} and {formattedEndD}')
+    elif userChoices['adverseEvent'] != "":
+        fig.update_layout(title=f'Adverse Events of {userChoices["adverseEvent"].capitalize()} reported between {formattedStartD} and {formattedEndD}')
     else:
         fig.update_layout(title=f'Adverse Events by Drug Indication reported between {formattedStartD} and {formattedEndD}')
         

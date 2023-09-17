@@ -2,5 +2,4 @@ flask
 plotly
 requests
 pandas
-logging
 waitress

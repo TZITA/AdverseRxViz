@@ -28,7 +28,7 @@ def generate_chart():
         logging.info('Chart generated successfully')
         return chart_html
     except Exception as e:
-        logging.error(f'An error has occuews: {str(e)}')
+        logging.error(f'An error has occured: {str(e)}')
         abort(500)
 
 

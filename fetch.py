@@ -51,7 +51,7 @@ def create_adverse_events_chart(userChoices):
 
     # Check if data is available
     # If not, return a message to flask route to handle the error
-    if data['results'] is None:
+    if not data.get('results'):
         return "no data"
     
     if eventSearch != "":

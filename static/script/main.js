@@ -45,7 +45,12 @@ $(document).ready(function() {
 
 // Search button
 document.getElementById('searchButton').addEventListener('click', function() {
-    console.log(userChoices);
+    // Check if chart type is selected
+    if (userChoices.chartType == "") {
+        alert("Please select a chart type.");
+        return;
+    }
+
     // Show loading gif
     document.getElementById('loading-gif').style.display = 'flex';
 
@@ -64,6 +69,20 @@ document.getElementById('searchButton').addEventListener('click', function() {
 
         // Open the chart in a new tab
         var newTab = window.open();
+
+        // Customise the new tab
+        // title
+        if (userChoices.drug && userChoices.adverseEvent) {
+            newTab.document.title = userChoices.drug + " and " + userChoices.adverseEvent;
+        } else if (userChoices.drug) {
+            newTab.document.title = userChoices.drug;
+        } else if (userChoices.adverseEvent) {
+            newTab.document.title = userChoices.adverseEvent;
+        } else {
+            newTab.document.title = "Adverse Event " + userChoices.chartType;
+        }
+
+        // chart
         newTab.document.write(chartHtml);
     });
 });

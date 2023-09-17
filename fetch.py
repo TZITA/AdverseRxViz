@@ -13,6 +13,7 @@ def create_adverse_events_chart(userChoices):
         drugSearch = f'patient.drug.openfda.generic_name:"{userChoices["drug"]}"'
     else:
         drugSearch = ""
+    
     # check if adverse event is selected
     if userChoices['adverseEvent'] != "":
         eventSearch = f'patient.reaction.reactionmeddrapt.exact:"{userChoices["adverseEvent"].upper()}"'
@@ -49,9 +50,8 @@ def create_adverse_events_chart(userChoices):
     data = response.json()
 
     # Check if data is available
-    # If not, return a message to the user
-    # Otherwise, create the chart
-    if len(data['results']) == 0:
+    # If not, return a message to flask route to handle the error
+    if data['results'] is None:
         return "no data"
     
     if eventSearch != "":

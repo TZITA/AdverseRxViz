@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 // Search button
 document.getElementById('searchButton').addEventListener('click', function() {
-    // Check if chart type is selected
+    // Check if chart type is selected and
     if (userChoices.chartType == "") {
         alert("Please select a chart type.");
         return;
@@ -69,6 +69,7 @@ document.getElementById('searchButton').addEventListener('click', function() {
 
         // Open the chart in a new tab
         var newTab = window.open();
+        newTab.document.write(chartHtml);
 
         // Customise the new tab
         // title
@@ -81,9 +82,6 @@ document.getElementById('searchButton').addEventListener('click', function() {
         } else {
             newTab.document.title = "Adverse Event " + userChoices.chartType;
         }
-
-        // chart
-        newTab.document.write(chartHtml);
     });
 });
 

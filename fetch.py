@@ -10,7 +10,7 @@ def create_adverse_events_chart(userChoices):
     
     # check if drug is selected
     if userChoices['drug'] != "":
-        drugSearch = f'patient.drug.openfda.generic_name:"{userChoices["drug"]}"'
+        drugSearch = f'patient.drug.openfda.generic_name.exact:"{userChoices["drug"].upper()}"'
     else:
         drugSearch = ""
     

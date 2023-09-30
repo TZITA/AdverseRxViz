@@ -3,11 +3,9 @@ var userChoices = {
     drug: "",
     dosageForm: "",
     adverseEvent: "",
+    timeFrame: "",
     startDate: "",
     endDate: "",
-    ageFrom: "",
-    ageTo: "",
-    sex: "",
     chartType: ""
 };
 
@@ -23,17 +21,24 @@ $(document).ready(function() {
         }
     });
 
+    // Time period more button
+    $("#selectedTime").on("input", function() {
+        var timeFrame = $(this).val();
+
+        if (timeFrame === "Custom") {
+            $("#customDate").show();
+        } else {
+            $("#customDate").hide();
+        }
+
+        userChoices.timeFrame = timeFrame;
+    });
+
     // Update user choices on input change
     $("input[type='text'], input[type='date'], input[type='number']").on("input", function() {
         var fieldName = $(this).attr("name");
         var fieldValue = $(this).val();
         userChoices[fieldName] = fieldValue;
-    });
-
-    // Update user choices for sex selection
-    $("input[type='text'][list='sex']").on("input", function() {
-        var sexValue = $(this).val();
-        userChoices.sex = sexValue;
     });
 
     // Update user choices for chart type selection
@@ -67,7 +72,7 @@ document.getElementById('searchButton').addEventListener('click', function() {
         // Hide loading gif
         document.getElementById('loading-gif').style.display = 'none';
 
-        // Open the chart in a new tab
+        //Open the chart in a new tab
         var newTab = window.open();
         newTab.document.write(chartHtml);
 

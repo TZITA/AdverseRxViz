@@ -20,17 +20,31 @@ def create_adverse_events_chart(userChoices):
     else:
         eventSearch = ""
 
-    # Construct the time frame search based on start and end dates
-    if userChoices['startDate'] != "":
-        startD = userChoices['startDate'].replace('-', '')
-    else:
-        startD = "20040101"
-    
-    if userChoices['endDate'] != "":
-        endD = userChoices['endDate'].replace('-', '')
+    # Construct the time frame
+    if userChoices['timeFrame'] == 'Custom' or userChoices['timeFrame'] == '':
+        if userChoices['startDate'] != "":
+            startD = userChoices['startDate'].replace('-', '')
+        else:
+            startD = "20040101"
+        
+        if userChoices['endDate'] != "":
+            endD = userChoices['endDate'].replace('-', '')
+        else:
+            endD = datetime.today().strftime('%Y%m%d')
+        
     else:
         endD = datetime.today().strftime('%Y%m%d')
-    
+
+        if userChoices['timeFrame'] == 'Last Month':
+            startD = (datetime.today() - pd.DateOffset(months=1)).strftime('%Y%m%d')
+        elif userChoices['timeFrame'] == 'Last Year':
+            startD = (datetime.today() - pd.DateOffset(years=1)).strftime('%Y%m%d')
+        elif userChoices['timeFrame'] == 'Last 5 Years':
+            startD = (datetime.today() - pd.DateOffset(years=5)).strftime('%Y%m%d')
+        elif userChoices['timeFrame'] == 'Last 10 Years':
+            startD = (datetime.today() - pd.DateOffset(years=10)).strftime('%Y%m%d')
+
+
     timeSearchFrame = f'receivedate:[{startD}+TO+{endD}]'
 
     # Combine all search criteria with logical operators (AND) if specified

@@ -131,10 +131,20 @@
             </section>
             <section>
                 <h3>Time Period</h3>
-                <label for="startDate">Start Date:</label>
-                <input type="date" id="startDate" name="startDate">
-                <label for="endDate">End Date:</label>
-                <input type="date" id="endDate" name="endDate">
+                <label for="time">Time Period: </label> <input id="selectedTime" type="text" list="time">
+                <datalist id="time">
+                    <option value="Last Month">
+                    <option value="Last Year">
+                    <option value="Last 5 Years">
+                    <option value="Last 10 Years">
+                    <option value="Custom">
+                </datalist>
+                <div id="customDate" style="display: none;">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" name="startDate">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" name="endDate">
+                </div>
             </section>
             <section>
                 <h3>Chart type</h3>

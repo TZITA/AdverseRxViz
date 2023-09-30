@@ -163,11 +163,6 @@ li p {
   margin: auto;
 }
 
-.guide2charting {
-  display: none;
-  font-size: 20px;
-}
-
 .genChart {
   display: flex;
   align-items: center;
